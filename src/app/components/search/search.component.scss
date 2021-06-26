@@ -1,0 +1,35 @@
+.search {
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  max-width: 460px;
+
+  input {
+    width: 100%;
+    font-size: 16px;
+    line-height: 1.5;
+    color: rgba(36, 43, 62, 0.6);
+    border: 1px solid #E8EAF2FF;
+    padding: 1rem 1.5rem 1rem 5rem;
+    border-radius: 50px;
+  }
+
+  .search-btn {
+    position: absolute;
+    top: 20%;
+    left: 2%;
+
+    button {
+      background: none;
+      border: none;
+    }
+  }
+
+  &_disabled {
+    input, button {
+      cursor: not-allowed;
+    }
+  }
+}
+
+

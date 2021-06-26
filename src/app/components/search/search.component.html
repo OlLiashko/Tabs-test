@@ -1,0 +1,15 @@
+<form class="search"
+      [formGroup]="search" [ngClass]="{'search_disabled': isDisabled}">
+  <input class="form-control"
+         type="text"
+         name="search"
+         autocomplete="off"
+         formControlName="searchInput"
+         [placeholder]=placeholder
+  >
+  <div class="search-btn">
+    <button>
+      <img src="assets/icons/Icon_search.svg" alt="search-button">
+    </button>
+  </div>
+</form>

@@ -45,7 +45,7 @@ export class SearchComponent implements OnInit {
       .pipe(
         untilDestroyed(this),
         pluck('searchInput'),
-        debounceTime(500),
+        debounceTime(1000),
         map(val => val ? val.trim() : val),
         distinctUntilChanged(),
       ).subscribe(str => this.searchValue.emit(str));

@@ -1,12 +1,9 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {IGithubrepositories} from '../interfaces/githubrepositories';
 import {environment} from '../../environments/environment';
-import {map} from 'rxjs/operators';
-
-class ErrorService {
-}
+import {createHttpParams} from '../shared/function';
+import {IGithubrepositories} from '../interfaces/githubrepositories';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +16,16 @@ export class GithubApiService {
   ) {
   }
 
-  public getGitHubApi(searchParam: string): Observable<any> {
-    return this.http.get(`${this.env.githubApi + searchParam}`);
+  public getGitHubApi({searchParam, per_page = 30, page = 1}:
+                        { searchParam: string, per_page?: number, page?: number }
+  ): Observable<IGithubrepositories> {
+
+    const params = createHttpParams({
+      searchParam,
+      per_page,
+      page
+    });
+
+    return this.http.get<IGithubrepositories>(`${this.env.githubApi + searchParam}`, {params});
   }
 }

@@ -8,6 +8,20 @@
       <div class="received-repos" *ngIf="amount$ | async">
         <span>Получено: {{amount$ | async}} репозиториев</span>
       </div>
+      <div class="list-wrap" *ngIf="(searchResult$ | async) as repos">
+        <!--        <div class="list-wrap__button-wrap">-->
+        <!--          <button (click)="getRepos()" mat-raised-button color="primary">Получить!</button>-->
+        <div class="list-wrap__body">
+          <div class="list-wrap__item" *ngFor="let item of repos">
+            <span class="list-wrap__name">{{item.login}}</span>
+            <span class="list-wrap__rep-id">{{item.id}}</span>
+            <div class="list-wrap__btn-wrap">
+              <button class="list-wrap__btn" mat-raised-button color="primary">в избранное!</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </mat-tab>
     <mat-tab label="favorite-repos">content2</mat-tab>
   </mat-tab-group>

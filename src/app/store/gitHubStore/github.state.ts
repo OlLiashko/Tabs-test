@@ -1,7 +1,7 @@
 import {Action, State, StateContext, Store} from '@ngxs/store';
 import {GithubStateModel} from './github.state-model';
 import {Injectable} from '@angular/core';
-import {GetAmountOFSearchRepos, SearchRepos} from './github.actions';
+import {SearchRepos} from './github.actions';
 import {Observable} from 'rxjs';
 import {GithubApiService} from '../../services/github-api.service';
 import {map, tap} from 'rxjs/operators';
@@ -10,8 +10,7 @@ import {map, tap} from 'rxjs/operators';
   name: 'githubState',
   defaults: {
     searchParam: '',
-    repos: null,
-    totalCount: 0
+    repos: null
   }
 })
 @Injectable()
@@ -32,11 +31,5 @@ export class GithubState {
       .pipe(
         map((repos) => ctx.setState({...state, repos}))
       );
-  }
-
-  @Action(GetAmountOFSearchRepos)
-  getAmountOFSearchRepos(ctx: StateContext<GithubStateModel>): void {
-    const state = ctx.getState();
-    ctx.patchState({...state, totalCount: state.repos.total_count});
   }
 }

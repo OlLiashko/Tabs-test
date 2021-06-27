@@ -30,3 +30,15 @@
   text-align: center;
   margin-top: 20px;
 }
+
+.list-wrap {
+  width: 100%;
+  height: calc(100vh - 380px);
+  overflow: auto;
+
+  &__button-wrap {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
+}

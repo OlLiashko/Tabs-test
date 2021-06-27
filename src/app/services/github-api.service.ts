@@ -19,7 +19,7 @@ export class GithubApiService {
   ) {
   }
 
-  public getGitHubApi(searchParam: string): Observable<any> {
-    return this.http.get(`${this.env.githubApi + searchParam}`);
+  public getGitHubApi(searchParam: string): Observable<IGithubrepositories> {
+    return this.http.get<IGithubrepositories>(`${this.env.githubApi + searchParam}`);
   }
 }

@@ -11,11 +11,13 @@ import { SearchComponent } from './components/search/search.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {NgxsModule, NoopNgxsExecutionStrategy} from '@ngxs/store';
 import {environment} from '../environments/environment';
-import {appState} from './Store';
+import {appState} from './store';
 import {NgxsRouterPluginModule} from '@ngxs/router-plugin';
 import {NgxsResetPluginModule} from 'ngxs-reset-plugin';
 import {NgxsReduxDevtoolsPluginModule} from '@ngxs/devtools-plugin';
 import {NgxsLoggerPluginModule} from '@ngxs/logger-plugin';
+import {HttpClientModule} from '@angular/common/http';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,8 @@ import {NgxsLoggerPluginModule} from '@ngxs/logger-plugin';
     NgxsResetPluginModule.forRoot(),
     NgxsReduxDevtoolsPluginModule.forRoot({disabled: environment.production}),
     NgxsLoggerPluginModule.forRoot({disabled: environment.production}),
+    HttpClientModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

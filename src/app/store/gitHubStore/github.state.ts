@@ -4,7 +4,7 @@ import {Injectable} from '@angular/core';
 import {SearchRepos} from './github.actions';
 import {Observable} from 'rxjs';
 import {GithubApiService} from '../../services/github-api.service';
-import {map, tap} from 'rxjs/operators';
+import {map} from 'rxjs/operators';
 
 @State<GithubStateModel>({
   name: 'githubState',
@@ -27,7 +27,7 @@ export class GithubState {
     const state = ctx.getState();
     ctx.setState({...state, searchParam});
 
-    return this.githubService.getGitHubApi(searchParam)
+    return this.githubService.getGitHubApi({searchParam, per_page: 100})
       .pipe(
         map((repos) => ctx.setState({...state, repos}))
       );

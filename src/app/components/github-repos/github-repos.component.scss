@@ -29,16 +29,36 @@
   font-size: 16px;
   text-align: center;
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .list-wrap {
   width: 100%;
-  height: calc(100vh - 380px);
+  height: calc(100vh - 450px);
   overflow: auto;
 
   &__button-wrap {
     margin-top: 20px;
     display: flex;
     justify-content: center;
+  }
+
+  &__body {
+    display: grid;
+    grid-template-columns: auto;
+  }
+
+  &__item {
+    width: 100%;
+    margin: 0 auto 5px;
+    max-width: 720px;
+    padding: 10px 0 10px 10px;
+    background: white;
+    border: 1px solid #E8EAF2FF;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
   }
 }

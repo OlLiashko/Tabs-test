@@ -1,6 +1,7 @@
 import {Selector} from '@ngxs/store';
 import {GithubState} from './github.state';
 import {GithubStateModel} from './github.state-model';
+import {IRepoItem} from '../../interfaces/githubrepositories';
 
 export class GithubSelectors {
 

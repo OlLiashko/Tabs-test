@@ -13,7 +13,11 @@
         <!--          <button (click)="getRepos()" mat-raised-button color="primary">Получить!</button>-->
         <div class="list-wrap__body">
           <div class="list-wrap__item" *ngFor="let item of repos">
-            <span>{{item.login}}</span>
+            <span class="list-wrap__name">{{item.login}}</span>
+            <span class="list-wrap__rep-id">{{item.id}}</span>
+            <div class="list-wrap__btn-wrap">
+              <button class="list-wrap__btn" mat-raised-button color="primary">в избранное!</button>
+            </div>
           </div>
         </div>
       </div>
